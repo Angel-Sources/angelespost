@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  /* Sección del carrito */
+  #cart-container {
+    flex: 1;
+    min-width: 300px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  #cart-container h2 {
+    margin-top: 0;
+  }
+  .cart-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+  }
+  .cart-item img {
+    width: 50px;
+    height: auto;
+  }
+  .cart-item-details {
+    flex: 1;
+  }
+  .cart-item-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .cart-item-quantity button {
+    width: 25px;
+    height: 25px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+  }
+  .cart-item-remove {
+    cursor: pointer;
+    font-size: 20px;
+    color: #900;
+  }
+  .cart-total {
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: right;
+  }
+  /* Sección del formulario de pago */
+  #checkout {
+    flex: 1;
+    min-width: 300px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    height: fit-content;
+  }
+  #checkout h2 {
+    margin-top: 0;
+  }
+  #checkout form label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  #checkout form input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  #checkout form button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  /* Sección de productos para añadir más items */
+  #product-list {
+    flex-basis: 100%;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  .product {
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  .product img {
+    width: 100px;
+    height: auto;
+  }
+  .product button {
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }

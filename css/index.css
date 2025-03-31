@@ -1,0 +1,75 @@
+/* From Uiverse.io by Li-Deheng */ 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  height: 80px;
+}
+h2{
+  font-size: 24px;
+  margin-left: 150px;
+}
+h3{
+  font-size: 17px;
+}
+/* Add this to prevent content shift when scrollbar appears */
+html {
+  margin-right: calc(-1 * (100vw - 100%));
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+}
+
+/* Style the scrollbar to be less intrusive */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #272727;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+header h1 {
+  margin-left: 0px; /* Ajusta este valor para mover más o menos a la derecha */
+}
+
+  
+  
+.footer{
+  background-color: rgb(20,20,20);
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+.footer p{
+  margin: 0;
+  
+}
+
+.logoImg {
+  width: 50px;
+  height: -60px;
+  top: 20px;
+  transform: scale(2);
+  position: absolute; /* Saca la imagen del flujo normal */
+  left: 85px; /* Añadido para mover a la derecha */
+  z-index: 1; /* Asegura que esté por encima del contenido */
+  pointer-events: auto; /* Evita que la imagen interfiera con clics */
+}
+
+h1 {
+  margin: 0;
+  white-space: nowrap;
+}
