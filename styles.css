@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"Poppins", sans-serif;
+}
+
+body {
+    background-color: #ffffff;/* default 20 20 20, #333*/ 
+    
+}
+header {
+    background-color: var(--color-core-blue-100, #0071dc);
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Cambiado para mejor distribución */
+    align-items: center;
+}
+#account-menu {
+  background-color: #0071dc;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: none; /* Initially hidden */
+  position: absolute;
+  z-index: 1000;
+}
+
+#account-menu.show {
+  display: block; /* Show when toggled */
+}
+
+#account-menu li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+.rebaja{
+  font-family: var(--font-family-default,Bogle,"Helvetica Neue",Helvetica,Arial,sans-serif);
+}
+#account-menu li:hover {
+  background-color: #0061bc;
+}
+
+#account-info {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#edit-username, #logout {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#edit-username:hover, #logout:hover {
+  text-decoration: underline;
+}

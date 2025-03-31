@@ -1,0 +1,252 @@
+.icon-menu {
+  --gap: 5px;
+  --height-bar: 4.5px;
+  --pos-y-bar-one: 0;
+  --pos-y-bar-three: 0;
+  --scale-bar: 1;
+  --rotate-bar-one: 0;
+  --rotate-bar-three: 0;
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  cursor: pointer;
+  position: relative;
+  z-index: 9999; /* Añadido z-index máximo */
+}
+
+.bar {
+  position: relative;
+  height: var(--height-bar);
+  width: 120%;
+  border-radius: .5rem;
+  background-color: rgb(255, 255, 255);
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+/* FIN ICON-MENU */
+
+.menu-sidebar {
+    position: fixed;
+    left: -300px;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background: #272727;
+    transition: 0.3s ease;
+    z-index: 998;
+    /* Añadido el patrón de fondo */
+    --s: 100px; /* Reducido el tamaño para ajustar al menú */
+    --c1: #1d1d1d;
+    --c2: #2a2a2a;
+    --c3: #333333;
+
+    background: repeating-conic-gradient(
+            from 30deg,
+            #0000 0 120deg,
+            var(--c3) 0 180deg
+        )
+        calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+        repeating-conic-gradient(
+            from 30deg,
+            var(--c1) 0 60deg,
+            var(--c2) 0 120deg,
+            var(--c3) 0 180deg
+        );
+    background-size: var(--s) calc(var(--s) * 0.577);
+}
+
+.menu-nav ul {
+    padding: 70px 20px 0 20px; /* Añadido padding horizontal */
+    margin: 0;
+    list-style: none;
+}
+
+.menu-nav ul li {
+    padding: 15px 20px;
+    background: transparent; /* Fondo semi-transparente */
+    border: 2px solid rgba(255, 255, 255,.2);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0, 0, 0,.2);
+    color: #fff;
+    margin-bottom: 10px; /* Espacio entre elementos */
+    border-radius: 12px; /* Bordes redondeados */
+    transition: all 0.3s ease;
+}
+
+.menu-nav ul li:hover {
+    background: rgba(241, 250, 238, 0.2); /* Efecto hover */
+    transform: translateX(5px); /* Pequeño desplazamiento al hover */
+}
+
+.menu-nav ul li a {
+    color: #f1faee;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%; /* Asegura que todo el cuadro sea clickeable */
+}
+
+.menu-nav ul li a i {
+    font-size: 20px;
+}
+
+.menu-nav ul li a:hover {
+    color: #a8dadc;
+}
+
+input[type]:checked ~ .menu-sidebar {
+    left: 0;
+}
+.cardRedes {
+  max-width: fit-content;
+  border-radius: 15px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 30px auto;
+  transition: 0.5s;
+}
+
+.cardRedes:hover {
+  animation: ease-out 5s;
+
+}
+
+.cardRedes ul {
+  padding: 1rem;
+  display: flex;
+  list-style: none;
+  gap: 2rem; /* Aumentado el espacio entre íconos */
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row; /* Cambiado a row para alineación horizontal */
+}
+
+.cardRedes ul li {
+  cursor: pointer;
+}
+
+.svg {
+  transition: all 0.3s;
+  /* if you find some problems change w - h : 30px*/
+  padding: 1rem;
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  color: hwb(41 0% 0%);
+  fill: currentColor;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164);
+}
+
+.text {
+  opacity: 0;
+  border-radius: 5px;
+  padding: 5px;
+  transition: all 0.3s;
+  color: rgb(255, 174, 0);
+  background-color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  z-index: 9999;
+  box-shadow: -5px 0 1px rgba(153, 153, 153, 0.2),
+    -10px 0 1px rgba(153, 153, 153, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.082);
+}
+
+/*isometric prooyection*/
+.iso-pro {
+  transition: 0.5s;
+}
+.iso-pro:hover a > .svg {
+  transform: translate(15px, -15px);
+  border-radius: 100%;
+}
+
+.iso-pro:hover .text {
+  opacity: 1;
+  transform: translate(25px, -2px) skew(-5deg);
+}
+
+.iso-pro:hover .svg {
+  transform: translate(5px, -5px);
+}
+
+.iso-pro span {
+  opacity: 0;
+  position: absolute;
+  color: #1877f2;
+  border-color: #1877f2;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164);
+  border-radius: 50%;
+  transition: all 0.3s;
+  height: 60px;
+  width: 60px;
+}
+
+.iso-pro:hover span {
+  opacity: 1;
+}
+
+.iso-pro:hover span:nth-child(1) {
+  opacity: 0.2;
+}
+
+.iso-pro:hover span:nth-child(2) {
+  opacity: 0.4;
+  transform: translate(5px, -5px);
+}
+
+.iso-pro:hover span:nth-child(3) {
+  opacity: 0.6;
+  transform: translate(10px, -10px);
+}
+.menu-nav ul li {
+  padding: 15px 20px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255,.2);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 10px rgba(0, 0, 0,.2);
+  color: #fff;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}

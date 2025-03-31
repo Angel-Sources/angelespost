@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout y Pago</title>
+  <link rel="stylesheet" href="css/pago.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <header>
+        <a href="index.html"><h1><i class='bx bx-arrow-back'></i></h1></a>
+        
+      </header>
+  <!-- Carrito de Compras -->
+  <div id="cart-container">
+    <h2>Carrito de Compras</h2>
+    <div class="cart-items">
+      <!-- Los items se agregarán dinámicamente aquí -->
+    </div>
+    <div class="cart-total">Total: <span class="cart-total-price">$0.00</span></div>
+  </div>
+
+  <!-- Formulario de Pago -->
+  <div id="checkout">
+    <h2>Pagar</h2>
+    <form id="payment-form">
+      <label for="card-number">Número de Tarjeta:</label>
+      <input type="text" id="card-number" placeholder="xxxx-xxxx-xxxx-xxxx" required>
+
+      <label for="expiry-date">Fecha de Expiración:</label>
+      <input type="text" id="expiry-date" placeholder="MM/AA" required>
+
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" placeholder="123" required>
+
+      <button type="submit">Pagar</button>
+    </form>
+  </div>
+
+  <!-- Lista de Productos para Agregar Más Items -->
+  <div id="product-list">
+    <h2>Productos Disponibles</h2>
+    <div class="product" data-price="85.00">
+      <img src="botanas/f.webp" alt="Producto 1" class="product-image">
+      <p class="price">$85.00</p>
+      <h3>Paketaxo</h3>
+      <p>Botana surtida Paketaxo quexo sabor queso y chile 313 g</p>
+      <button class="buttoncarrito">Agregar al carrito</button>
+    </div>
+    <!-- Puedes agregar más productos aquí -->
+  </div>
+
+  <script src="scripts/cart.js"></script>
+</body>
+</html>

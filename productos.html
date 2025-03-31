@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deportes y Suplementos</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="menu/menu.css">
+    <link rel="stylesheet" href="css/searchbar.css">
+    <link rel="stylesheet" href="css/producto.css">
+    <link rel="stylesheet" href="css/producto2.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/barraCategoriaMenu.css">
+</head>
+<body>
+    <header>
+
+
+        <input hidden="" class="check-icon" id="check-icon" name="check-icon" type="checkbox">
+        <label class="icon-menu" for="check-icon">
+            <div class="bar bar--1"></div>
+            <div class="bar bar--2"></div>
+            <div class="bar bar--3"></div>
+        </label>
+        <div class="menu-sidebar">
+            <nav class="menu-nav">
+                <ul>
+                    <li class="dropdown">
+                        <i class='bx bx-home-alt-2' ></i> Home
+                    </li>
+                    <li class="dropdown">
+                        <i class='bx bx-envelope' ></i> Contacto
+                    </li>
+                    <!-- ... existing menu items ... -->
+                    <!-- Replace the existing account dropdown li -->
+                    <li class="dropdown" id="account-dropdown">
+                        <div class="dropdown-header">
+                            <i class='bx bx-user'></i> 
+                            <span>Cuenta</span>
+                        </div>
+                        <div class="account-container" id="account-menu">
+                            <div class="account-info" id="logged-in" style="display: none;">
+                                <div class="user-details">
+                                    <p class="user-name">Nombre: <span id="display-name"></span></p>
+                                    <p class="user-email">Email: <span id="display-email"></span></p>
+                                </div>
+                                <button class="logout-btn" onclick="logout()">Cerrar Sesión</button>
+                            </div>
+                        <div class="account-info" id="logged-out">
+                            <p>No has iniciado sesión</p>
+                            <a href="login.html" class="login-btn">Iniciar Sesión</a>
+                        </div>
+                        </div>
+                        </li>
+                    <li class="dropdown">
+                        Suplementos
+                    </li>
+                </ul>
+            </nav>
+            <!--Boton Menu Redes-->
+            <div class="cardRedes">
+                <ul>
+                    <li class="iso-pro">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <a href="https://www.facebook.com/profile.php?id=61573854037601">
+                            <svg viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg" class="svg">
+                                <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+                            </svg>
+                        </a>
+                        <div class="text">Facebook</div>
+                    </li>
+                    <li class="iso-pro">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <a href="https://x.com/angel_sports_">
+                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
+                            </svg>
+                        </a>
+                        <div class="text">Twitter</div>
+                    </li>
+                    <li class="iso-pro">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <a href="https://www.instagram.com/angel._sports/">
+                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+                            </svg>
+                        </a>
+                        <div class="text">Instagram</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!--Logo e nombre pag-->
+        <a href="index.html"><img class="logoImg" src="img/wings-removebg-preview.png"></a>
+        <h1>  <a href="index.html"><font color="yellow"> Angel Sport</font></a></h1>
+        <button id="cart-button" class="cart">
+            <div class="content-avatars">
+                <div class="cart-status"></div>
+                <div class="avatars">
+                    <i class='bx bx-cart'></i>
+                </div>
+            </div>
+            <div class="notice-content">
+                <div class="cart-count">0 items</div>
+                <div class="cart-total-mini">$0.00</div>
+            </div>
+        </button>
+        <!--Barra de busqueda-->
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar productos...">
+            <button div class="buscar-button"><i class='bx bx-search-alt-2' ></i></button>
+        </div>
+
+    </header>
+    <!--Barra de menu Categoria-->
+    <div class="barra-menu">
+        <nav class="barra-nav">
+            <ul class="menu-categories">
+                <li class="category">
+                    Bebidas
+                    <ul class="submenu">
+                        <li><a href="#">Amper</a></li>
+                        <li><a href="#">Monster</a></li>
+                        <li><a href="#">Redbull</a></li>
+                        <li><a href="#">Prime</a></li>
+                        <li><a href="#">Todo</a></li>
+                    </ul>
+                </li>
+                <li class="category">
+                    Ropa
+                    <ul class="submenu">
+                        <li><a href="#">Camisas</a></li>
+                        <li><a href="#">Pans</a></li>
+                        <li><a href="#">Tenis</a></li>
+                        <li><a href="#">Todo</a></li>
+                    </ul>
+                </li>
+                <li class="category">
+                    Accesorios
+                    <ul class="submenu">
+                        <li><a href="#">Mochilas</a></li>
+                        <li><a href="#">Guantes</a></li>
+                        <li><a href="#">Cinturones</a></li>
+                        <li><a href="#">Todo</a></li>
+                    </ul>
+                </li>
+                <li class="category">
+                    Suplementos
+                    <ul class="submenu">
+                        <li><a href="#">Creatina</a></li>
+                        <li><a href="#">Proteína</a></li>
+                        <li><a href="#">Pre-entreno</a></li>
+                        <li><a href="#">Todo</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+
+
+
+    <div class="containerproducto">
+                <!-- ... Monster ... -->
+
+        <div class="product" data-price="49.99">
+            <img src="img/monster/m.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy Ultra Black</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/monster-ultra-fiesta-mango-zero-sugar-5060751215011-57001781494091.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Ultra Fiesta Mango Zero Sugar</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/monster-ultra-gold-pineapple-zero-sugar-5060896624280-57001787752779.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Ultra Gold Pineapple Zero Sugar</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/monster-java-salted-caramel-070847027249-31178719232163.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Java Salted Caramel</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/monster-japan-khaos-4897036691083-34029372801187.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Japan Khaos</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/monster-ultra-violet-zero-sugar-5060639125739-31178727063715.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Ultra Violet Zero Sugar</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/monster-java-moca-loca-070847813088-31377075699875.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Java Moca Loca</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/monster-mean-bean-070847813064-31178720444579.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Mean Bean</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/monster-energy-the-doctor-rossi-5060335635365-35604291748003.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-dragon-ice-tea-lemon-52069589811531.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-dragon-ice-tea-peach-0070847037088-52069632082251.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-energy-bad-apple-52691453968715.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-energy-citra-4897036692073-52881769791819.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-energy-juice-aussie-style-lemonade-5060947542952-57001784475979.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-energy-m3-4897036691021-52055321215307.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-energy-nitro-5060751218920-36553636380835.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-energy-reserve-dreamsicle-orange-5061013940221-52609841037643.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-energy-reserve-peaches-n-creme-55352732123467.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-energy-rio-punch-070847896159-57001716515147.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-energy-ultra-peachy-keen-070847890720-57001720021323.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-energy-ultra-vice-guava-070847898146-56969269281099.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-japan-energy-4897036692288-52381903192395.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-java-300-mocha-51676781314379.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-java-energy-irish-creme-55352658559307.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-pipeline-punch-5060517883539-33899252285603.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-pl-assault-5060896622316-57001723232587.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-rehab-peach-51676648538443.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-rehab-strawberry-lemonade-51676669804875.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-rehab-tea-lemonade-51676663873867.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-rehab-wild-berry-0696228629163-52582363693387.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-ultra-blue-zero-sugar-070847016205-57923514564939.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/monster/2/monster-ultra-paradise-zero-sugar-5060639127528-54709634597195.webp" alt="Monster" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <!--... Redbull... -->
+        <div class="product" data-price="49.99">
+            <img src="img/redbull/red-bull-energy-drink-japan-purple-mystic-grape-4560292291372-1144881024.webp" alt="Redbull" class="product-image">
+            <h3><font color="yellow">Redbull Energy Drink Japan Purple Mystic Grape</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/redbull/red-bull-energy-drink-japan-summer-edition-lime-1144822478.webp" alt="Redbull" class="product-image">
+            <h3><font color="yellow">Redbull Energy Drink Japan Summer Edition Lime</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/redbull/red-bull-energy-drink-japan-tropical-grapefruit-1144822482.webp" alt="Redbull" class="product-image">
+            <h3><font color="yellow">Redbull Energy Drink Japan Tropical Grapefruit</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/redbull/red-bull-energy-drink-japan-yellow-edition-1144881026.webp" alt="Redbull" class="product-image">
+            <h3><font color="yellow">Redbull Energy Drink Japan Yellow Edition</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/redbull/red-bull-energy-drink-peach-90446535-1144881025.webp" alt="Redbull" class="product-image">
+            <h3><font color="yellow">Rebull Energy Drink Peach</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/redbull/red-bull-energy-drink-purple-edition-acai-51141784502603.webp" alt="Redbull" class="product-image">
+            <h3><font color="yellow">Redbull Energy Purple Edition Acai</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/redbull/red-bull-energy-drink-spring-edition-woodruff-pink-grapefruit-90474453-1144822493.webp" alt="Redbull" class="product-image">
+            <h3><font color="yellow">Redbull Energy Drink Spring Edition Woodruff Pink Grapefruit</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/redbull/red-bull-energy-drink-the-purple-edition-90454981-1144822484.webp" alt="Redbull" class="product-image">
+            <h3><font color="yellow">Redbull Energy Drink The Purple Edition</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/redbull/red-bull-energy-the-pink-edition-wild-berry-90456220-1144822477.webp" alt="Redbull" class="product-image">
+            <h3><font color="yellow">Redbull Energy The Pink Edition Wild Berry</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+        <div class="product" data-price="49.99">
+            <img src="img/redbull/red-bull-energy-the-winter-edition-mure-givree-vanille-9002490274641-1144822492.webp" alt="Redbull" class="product-image">
+            <h3><font color="yellow">Monster Energy The Doctor Rossi</font></h3>
+            <p></p>
+            <p class="price">$49.99</p>
+            <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+        </div>
+            <!-- ... Prime ... -->
+            <div class="product" data-price="49.99">
+                <img src="img/prime/prime-hydration-glowberry-810116121820-50993460576587.webp" alt="Redbull" class="product-image">
+                <h3><font color="yellow">Prime Hydration Glowberry</font></h3>
+                <p></p>
+                <p class="price">$49.99</p>
+                <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+            </div>
+            <div class="product" data-price="49.99">
+                <img src="img/prime/prime-hydration-ice-pop-850040427080-50582742892875.webp" alt="Redbull" class="product-image">
+                <h3><font color="yellow">Prime Hydration</font></h3>
+                <p></p>
+                <p class="price">$49.99</p>
+                <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+            </div>
+            <div class="product" data-price="49.99">
+                <img src="img/prime/prime-hydration-meta-moon-50778841710923.webp" alt="Redbull" class="product-image">
+                <h3><font color="yellow">Prime Hydration Meta Moon</font></h3>
+                <p></p>
+                <p class="price">$49.99</p>
+                <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+            </div>
+            <div class="product" data-price="49.99">
+                <img src="img/prime/prime-hydration-strawberry-watermelon-850003560977-50582790177099.webp" alt="Redbull" class="product-image">
+                <h3><font color="yellow">Prime Hydration Strawberry Watermelon</font></h3>
+                <p></p>
+                <p class="price">$49.99</p>
+                <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+            </div>
+            <div class="product" data-price="49.99">
+                <img src="img/prime/prime-hydration-tropical-punch-850003560441-36815180824739.webp" alt="Redbull" class="product-image">
+                <h3><font color="yellow">Prime Hydration Tropical Punch</font></h3>
+                <p></p>
+                <p class="price">$49.99</p>
+                <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+            </div>
+    </div>
+    <!-- ... modal ... -->
+    <div id="productModal" class="product-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-product-info">
+                <img id="modalImage" src="" alt="Product Image">
+                <div class="modal-details">
+                    <h2 class="modal-title"></h2>
+                    <p class="modal-description"></p>
+                    <p class="modal-price"></p>
+                    <div class="modal-extra-info">
+                        <ul>
+                            <li><i class='bx bx-check'></i> Envío gratis</li>
+                            <li><i class='bx bx-time'></i> Entrega en 24-48 horas</li>
+                            <li><i class='bx bx-package'></i> Devolución gratuita</li>
+                        </ul>
+                    </div>
+                    <button class="buttoncarrito"><font color="yellow">Agregar al carrito</font></button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- ... /modal ... -->
+
+    <div class="cart-container" id="cart">
+        <div class="cart-header">
+            <h2>Carrito de Compras</h2>
+            <span class="cart-close">&times;</span>
+        </div>
+        <div class="cart-items">
+            <!-- Los items se agregarán dinámicamente -->
+        </div>
+        <div class="cart-total">
+            <div>Total: <span class="cart-total-price">$0.00</span></div>
+            <button class="checkout-btn">Proceder al Pago</button>
+        </div>
+    </div>
+    <script src="scripts/userDisplay.js"></script>
+<script src="scripts/cart.js"></script>
+<script src="scripts/modal.js"></script>
+<script src="scripts/account.js"></script>
++</body>
+</html>
